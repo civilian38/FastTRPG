@@ -328,3 +328,4 @@ $RECYCLE.BIN/
 
 *.db
 *.sqlite3
+.topromptignore

@@ -1,8 +1,10 @@
 from typing import Annotated, Generator
 from sqlmodel import Session, SQLModel, create_engine
 from fastapi import Depends
+from pathlib import Path
 
-DATABASE_URL = "sqlite:///./database.db"
+BASE_DIR = Path(__file__).resolve().parent.parent
+DATABASE_URL = f"sqlite:///{BASE_DIR / 'database.db'}"
 connect_args = {"check_same_thread": False}
 engine = create_engine(DATABASE_URL, echo=True, connect_args=connect_args)
 
