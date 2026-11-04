@@ -1,4 +1,5 @@
 from typing import Optional, List
+from datetime import datetime
 from sqlmodel import Field, Relationship, SQLModel
 from core.models import TimestampBase
 
@@ -58,6 +59,18 @@ class PlaySession(PlaySessionBase, TimestampBase, table=True):
 
     user_requests: List[UserRequest] = Relationship(back_populates="play_session")
 
+
+class PlaySessionCreate(PlaySessionBase):
+    pass
+
+
+class PlaySessionPublic(PlaySessionBase):
+    id: int
+    created_at: datetime
+
+
+class PlaySessionUpdate(PlaySessionBase):
+    session_title: Optional[str] = None
 
 # --------------------------------------------------
 # 1. PlaySessionSetup
