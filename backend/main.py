@@ -1,7 +1,7 @@
 from contextlib import asynccontextmanager
 from fastapi import FastAPI
-from core.database import init_db
 from memos.router import router as memo_router
+from trpg.controllers import controller as trgp_controller
 
 @asynccontextmanager
 async def lifespan(app: FastAPI):
@@ -9,3 +9,4 @@ async def lifespan(app: FastAPI):
 app = FastAPI(title="FastTRPG", lifespan=lifespan)
 
 app.include_router(memo_router)
+app.include_router(trgp_controller)

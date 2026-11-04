@@ -15,6 +15,7 @@ from core.database import DATABASE_URL
 
 # 주의: Alembic이 테이블을 감지하려면 모델 모듈을 반드시 import해야 합니다!
 from memos.models import Memo  # noqa: F401
+from trpg.models import PlaySessionSetup
 # --------------------------------------------------
 
 config = context.config
